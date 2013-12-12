@@ -5,9 +5,8 @@ module RailsBootstrapHelpers::Renderers
     def render
       append_class "btn"
 
-      if (style = has_option?("style")) && style != "default"
-        append_class "btn-" + style.to_s
-      end
+      style = "default" unless has_option?("style")
+      append_class "btn-" + style.to_s
 
       if size = has_option?("size")
         append_class "btn-" + size.to_s
